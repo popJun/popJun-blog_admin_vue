@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-//获取用户列表
+
 export function getUserList(query) {
   return request({
     url: '/user/list',
@@ -7,7 +7,7 @@ export function getUserList(query) {
     params: query
   })
 }
-//获取角色列表
+
 export function getRoleList(query) {
   return request({
     url: '/role/list',
@@ -15,7 +15,7 @@ export function getRoleList(query) {
     params: query
   })
 }
-//获取权限列表
+
 export function getPermissionList(query) {
   return request({
     url: '/permission/list',

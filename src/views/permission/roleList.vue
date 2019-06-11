@@ -59,6 +59,7 @@
 </template>
 <script>
 import { getRoleList } from "@/api/permission";
+
 //分页插件
 import Pagination from "@/components/Pagination";
 export default {
@@ -83,15 +84,14 @@ export default {
       getRoleList(this.listQuery).then(response => {
         const items = response.data.items;  
         this.list = items.map(v => {
-          this.$set(v, "edit", false); // https://vuejs.org/v2/guide/reactivity.html
+          this.$set(v, "edit", false);
           return v;
         });
          // 延时1.5秒
         setTimeout(() => {
           this.listLoading = false;
         }, 1.5 * 1000);
-      });
-      
+      });   
     }
   }
 };

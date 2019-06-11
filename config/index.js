@@ -14,6 +14,10 @@ module.exports = {
         target: 'http://cas.client1.com:9100/',   //这里写的是访问接口的域名和端口号
         changeOrigin: true, // 必须加上这个才能跨域请求
       },
+      '/cas': {     //这里是公共部分，在调用接口时后面接不相同的部分，/api就相当于http://192.168.0.199:8926/api这一段
+        target: 'http://cas.client1.com:9100/',   //这里写的是访问接口的域名和端口号
+        changeOrigin: true, // 必须加上这个才能跨域请求
+      },
     },
     // Various Dev Server settings
     host: 'cas.client1.com', // can be overwritten by process.env.HOST

@@ -3,18 +3,21 @@ import store from './store'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
 import { Message } from 'element-ui'
-import {setToken, getToken } from '@/utils/auth' // getToken from cookie
+import { setToken, getToken } from '@/utils/auth' // getToken from cookie
 
 NProgress.configure({ showSpinner: false })// NProgress configuration
 
 const whiteList = ['/login'] // 不重定向白名单
 router.beforeEach((to, from, next) => {
   NProgress.start()
-  if(getToken() === undefined){
-    let url = location.href, pre = url.indexOf("="),suf=url.lastIndexOf("#");
-    if(pre!=-1){
-      setToken(url.substring(pre+1,suf));
-    }   
+  if (getToken() === undefined) {
+    // eslint-disable-next-line one-var
+    let url = location.href, pre = url.indexOf("="), suf = url.lastIndexOf("#")
+    // eslint-disable-next-line eqeqeq
+    if (pre != -1) {
+      setToken(url.substring(pre + 1, suf))
+      window.location.href = 'http://cas.client1.com:9528'
+    }
   }
   if (getToken()) {
     if (to.path === '/login') {

@@ -59,7 +59,10 @@ service.interceptors.response.use(
     }
   },
   error => {
-    console.log('err' + error) // for debug
+    if (error.response.status === 302) {
+      window.location = 'http://cas.client1.com:9100/user/redirectLogin'
+    }
+    console.log('err' + error.response.status) // for debug
     Message({
       message: error.message,
       type: 'error',

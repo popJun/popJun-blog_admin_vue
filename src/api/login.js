@@ -14,3 +14,10 @@ export function logout() {
     method: 'post'
   })
 }
+
+export function setTokenInWeb() {
+  return request({
+    url: '/user/setToken',
+    method: 'post'
+  })
+}

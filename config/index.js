@@ -3,7 +3,10 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 
 const path = require('path')
-
+// const devUrl = 'https://www.easy-mock.com/mock/5cf4dd646c6d3b350414652c'
+const devUrl = 'http://cas.client1.com:9100/'
+const localhost = 'cas.client1.com'
+const port = 9528
 module.exports = {
   dev: {
     // Paths
@@ -11,17 +14,17 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/user': {     //这里是公共部分，在调用接口时后面接不相同的部分，/api就相当于http://192.168.0.199:8926/api这一段
-        target: 'http://cas.client1.com:9100/',   //这里写的是访问接口的域名和端口号
+        target: devUrl,   //这里写的是访问接口的域名和端口号
         changeOrigin: true, // 必须加上这个才能跨域请求
       },
       '/cas': {     //这里是公共部分，在调用接口时后面接不相同的部分，/api就相当于http://192.168.0.199:8926/api这一段
-        target: 'http://cas.client1.com:9100/',   //这里写的是访问接口的域名和端口号
+        target: devUrl,   //这里写的是访问接口的域名和端口号
         changeOrigin: true, // 必须加上这个才能跨域请求
       },
     },
     // Various Dev Server settings
-    host: 'cas.client1.com', // can be overwritten by process.env.HOST
-    port: 9528, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    host: localhost, // can be overwritten by process.env.HOST
+    port: port, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
     autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: false,

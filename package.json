@@ -14,7 +14,7 @@
     "svgo": "svgo -f src/icons/svg --config=src/icons/svgo.yml"
   },
   "dependencies": {
-    "axios": "0.18.0",
+    "axios": "0.19.0",
     "clipboard": "1.7.1",
     "codemirror": "5.39.2",
     "driver.js": "0.8.1",
